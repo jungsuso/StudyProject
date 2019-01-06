@@ -10,9 +10,16 @@ void FigureStick::CreateStick()
 
 bool FigureStick::CheckPosition(const Position movePos)
 {
-	return false;
+	if (!IsinMapNow())
+	{
+		return false;
+	}
 }
 
 void FigureStick::MovePosition(const Position movePos)
 {
+	if (!CheckPosition(movePos))
+	{
+		return;
+	}
 }

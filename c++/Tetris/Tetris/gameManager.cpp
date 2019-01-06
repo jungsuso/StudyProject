@@ -62,6 +62,8 @@ void GameManager::DrawMainScreen()
 
 void GameManager::DrawGameStart()
 {
+	int input = 0;
+
 	using namespace std;
 	system("cls");
 	for (int y = 0; y < MAX_HEIGHT; ++y)
@@ -85,6 +87,11 @@ void GameManager::DrawGameStart()
 			break;
 		cout << endl;
 	}
+	input = _getch();
+	if (input == ESC)
+	{
+		//ReadyGame();
+	}
 }
 
 void GameManager::DrawGameInfo()
@@ -97,14 +104,12 @@ void GameManager::DrawFigures()
 
 	int tetris_figure = 0; // rand() % 7;
 
+	TetrisParent* ttParent = new TetrisParent();
+
 	switch (tetris_figure)
 	{
 	case Stick:
-		/*FigureStick* fgStick = new fgStick();
-
-		fgStick->CreateStick();
-
-		delete fgStick;*/
+		ttParent->CreateFigures(tetris_figure);
 		break;
 	case Nieun:
 		break;

@@ -1,4 +1,6 @@
 #include "tetrisParent.h"
+#include "gameManager.h"
+#include "tetrisStick.h"
 
 void TetrisParent::SetX(int dx)
 {
@@ -36,4 +38,29 @@ bool TetrisParent::IsinMapNow(int dy, int dx)
 		return true;
 
 	return false;
+}
+
+void TetrisParent::CreateFigures(int figures_number)
+{
+	switch (figures_number)
+	{
+	case Stick:
+		FigureStick* FgStick = new FigureStick();
+		FgStick->CreateStick();
+		break;
+	/*
+	case Nieun:
+		break;
+	case RNieun:
+		break;
+	case O:
+		break;
+	case UpStairs:
+		break;
+	case DownStairs:
+		break;
+	case Square:
+		break;
+	*/
+	}
 }

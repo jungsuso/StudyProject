@@ -11,6 +11,8 @@ public:
 	bool IsinMapNow() const;
 	bool IsinMapNow(int dy, int dx);
 
+	void CreateFigures(int figures_number);
+
 	// @TODO : Rotation,
 
 	virtual bool CheckPosition(const Position movePos) = 0;

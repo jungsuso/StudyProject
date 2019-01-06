@@ -8,6 +8,7 @@
 #define MAX_WIDTH 31
 #define MAGIC_KEY 224
 #define SPACEBAR 32
+#define ESC 27
 
 extern int screen[MAX_HEIGHT][MAX_WIDTH];
 

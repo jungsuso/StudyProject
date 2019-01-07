@@ -5,7 +5,7 @@ class FigureDownStairs : public TetrisParent
 {
 public:
 
-	void CreateStick();
+	void CreateDownStairs();
 
 	bool CheckPosition(const Position movePos) override;
 	void MovePosition(const Position movePos) override;

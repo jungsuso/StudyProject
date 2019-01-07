@@ -114,18 +114,16 @@ int main()
 	GameManager* tGameManager = new GameManager();
 	tGameManager->SetConsoleSize();
 
-	while (true)
+	switch (ReadyGame())
 	{
-		switch (ReadyGame())
-		{
-		case GAMESTART:
-			tGameManager->DrawGameStart();
-			break;
-		case GAMEINFO:
-			break;
-		case QUIT:
-			return 0;
-		}
+	case GAMESTART:
+		tGameManager->DrawGameStart();
+		tGameManager->DrawFigures();
+		break;
+	case GAMEINFO:
+		break;
+	case QUIT:
+		return 0;
 	}
 
 	delete tGameManager;

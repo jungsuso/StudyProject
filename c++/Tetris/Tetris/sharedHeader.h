@@ -44,7 +44,7 @@ enum TETRISFIGURE
 {
 	Stick = 0,
 	Nieun,
-	RNieun,
+	Rnieun,
 	O,
 	UpStairs,
 	DownStairs,

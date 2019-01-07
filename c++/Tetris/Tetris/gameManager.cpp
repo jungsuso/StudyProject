@@ -7,7 +7,14 @@
 #include "gameManager.h"
 #include "sharedHeader.h"
 #include "tetrisParent.h"
+
 #include "tetrisStick.h"
+#include "tetrisNieun.h"
+#include "tetrisRnieun.h"
+#include "tetrisO.h"
+#include "tetrisUpStairs.h"
+#include "tetrisDownStairs.h"
+#include "tetrisSquare.h"
 
 void GameManager::SetConsoleSize()
 {
@@ -87,11 +94,14 @@ void GameManager::DrawGameStart()
 			break;
 		cout << endl;
 	}
+
+	/*
 	input = _getch();
 	if (input == ESC)
 	{
-		//ReadyGame();
+		DrawMainScreen();
 	}
+	*/
 }
 
 void GameManager::DrawGameInfo()
@@ -100,28 +110,71 @@ void GameManager::DrawGameInfo()
 
 void GameManager::DrawFigures()
 {
-	//srand((unsigned int)time(0));
+	srand((unsigned int)time(0));
 
-	int tetris_figure = 0; // rand() % 7;
+	int tetris_figure = rand() % 7;
 
-	TetrisParent* ttParent = new TetrisParent();
-
-	switch (tetris_figure)
+	if (tetris_figure == Stick)
 	{
-	case Stick:
-		ttParent->CreateFigures(tetris_figure);
-		break;
-	case Nieun:
-		break;
-	case RNieun:
-		break;
-	case O:
-		break;
-	case UpStairs:
-		break;
-	case DownStairs:
-		break;
-	case Square:
-		break;
+		FigureStick* fgStick = new FigureStick();
+
+		fgStick->CreateStick();
+		DrawGameStart();
+
+		delete fgStick;
+	}
+	else if (tetris_figure == Nieun)
+	{
+		FigureNieun* fgNieun = new FigureNieun();
+
+		fgNieun->CreateNieun();
+		DrawGameStart();
+
+		delete fgNieun;
+	}
+	else if (tetris_figure == Rnieun)
+	{
+		FigureRnieun* fgRnieun = new FigureRnieun();
+
+		fgRnieun->CreateRnieun();
+		DrawGameStart();
+
+		delete fgRnieun;
+	}
+	else if (tetris_figure == O)
+	{
+		FigureO* fgO = new FigureO();
+
+		fgO->CreateO();
+		DrawGameStart();
+
+		delete fgO;
+	}
+	else if (tetris_figure == UpStairs)
+	{
+		FigureUpStairs* fgUpStairs = new FigureUpStairs();
+
+		fgUpStairs->CreateUpStairs();
+		DrawGameStart();
+
+		delete fgUpStairs;
+	}
+	else if (tetris_figure == DownStairs)
+	{
+		FigureDownStairs* fgDownStairs = new FigureDownStairs();
+
+		fgDownStairs->CreateDownStairs();
+		DrawGameStart();
+
+		delete fgDownStairs;
+	}
+	else if (tetris_figure == Square)
+	{
+		FigureSquare* fgSquare = new FigureSquare();
+
+		fgSquare->CreateSquare();
+		DrawGameStart();
+
+		delete fgSquare;
 	}
 }
